@@ -14,6 +14,7 @@ export const VideoStore = create((set, get) => ({
             await AxiosInstance.post(`/video/post`,data);
             await get().getAllVideos();
             toast.success("Video posted");
+            set({ isPosting: false });
         } catch (error) {
             console.log(error);
             toast.error("Something went wrong")
@@ -26,7 +27,6 @@ export const VideoStore = create((set, get) => ({
         set({ isLoading : true })
         try {
             const response = await AxiosInstance.get(`/video/getAll`);
-            console.log(response.data);
             set({ isLoading: false });
             set({ allVideos : response.data.response });
         } catch (error) {
@@ -41,9 +41,7 @@ export const VideoStore = create((set, get) => ({
         set({ isLoading : true });
         try {
             const response = await AxiosInstance.get(`/video/getById/${id}`);
-            console.log(response.data);
             set({ isLoading: false });
-            console.log(response.data)
             set({ singleVideo: response.data.response });
         } catch (error) {
             console.log(error);

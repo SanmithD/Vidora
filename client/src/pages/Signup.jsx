@@ -1,7 +1,6 @@
 import { Eye, EyeOff, Mail, User2 } from "lucide-react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Media from "../components/Media";
 import { UserStore } from "../store/UserStore";
 
 function Signup() {
@@ -23,9 +22,6 @@ function Signup() {
 
   return (
     <div className="h-screen flex flex-col justify-center items-center " >
-      <div>
-        <Media/>
-      </div>
       <div>
         <div className="space-y-8" >
           <label className="flex">

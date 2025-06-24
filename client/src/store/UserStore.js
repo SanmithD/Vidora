@@ -14,7 +14,6 @@ export const UserStore = create((set) => ({
         set({ isSigning: true })
         try {
             const response = await AxiosInstance.post('/auth/signup',data)
-            set({ authUser: response.data });
             set({ success: true });
             toast.success(response.data.message)
         } catch (error) {

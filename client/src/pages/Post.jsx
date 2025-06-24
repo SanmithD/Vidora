@@ -7,7 +7,7 @@ function Post() {
   const [videoPreview, setVideoPreview] = useState(null);
   const videoRef = useRef(null);
   const dropRef = useRef(null);
-  const { postVideo } = VideoStore();
+  const { postVideo, isPosting } = VideoStore();
 
   const handleVideo = (file) => {
     if (!file) return;
@@ -111,7 +111,7 @@ function Post() {
         onClick={handlePost}
         className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition"
       >
-        Post Video
+        { isPosting ? "Posting..." : "Post" }
       </button>
     </div>
   );

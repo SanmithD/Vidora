@@ -4,10 +4,10 @@ import { authorized } from '../middlewares/auth.middleware.js';
 
 const searchRouter = express.Router();
 
-searchRouter.get('/search',authorized,search);
-searchRouter.post('/save',authorized,saveSearch);
+searchRouter.get('/',authorized,search);
+searchRouter.post('/save/:id',authorized,saveSearch);
 searchRouter.get('/recent',authorized,recentSearches);
 searchRouter.delete('/remove/:id',authorized,removeRecentSearches);
 searchRouter.delete('/removeAll/:id',authorized,removeAllRecentSearches);
 
-export default searchRouter;
+export default searchRouter;        

@@ -2,6 +2,7 @@ import { UserCircle2 } from "lucide-react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { VideoStore } from "../store/VideoStore";
+import Skeleton from "./Skeleton";
 
 function SinglePage() {
   const { id } = useParams();
@@ -14,7 +15,7 @@ function SinglePage() {
   }, [id, getVideoById]);
 
   if (!singleVideo) {
-    return <p className="p-4 text-gray-500">Loading...</p>;
+        return <div className="h-screen flex justify-center items-center" ><Skeleton/></div> 
   }
 
   return (
@@ -40,7 +41,7 @@ function SinglePage() {
           </div>
 
           <div className="lg:w-1/3 text-gray-700 text-lg leading-relaxed">
-            <p className="text-3xl font-semibold">{singleVideo?.title}</p>
+            <p className="text-3xl text-white font-semibold">{singleVideo?.title}</p>
             <p>{singleVideo?.description}</p>
           </div>
         </div>
